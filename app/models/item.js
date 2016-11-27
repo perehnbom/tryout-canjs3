@@ -1,4 +1,5 @@
 require('can-define/map/map');
+require('can-connect');
 var can = require('can-util/namespace');
 
 var Item = can.DefineMap.extend({

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/webpack-dev-server --hot"
+    "build": "./node_modules/.bin/webpack",
+    "develop": "./node_modules/.bin/webpack-dev-server --hot --port 8090"
   },
   "repository": {
     "type": "git",

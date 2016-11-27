@@ -1,6 +1,9 @@
-<h3>Test page</h3>
+<h3>View Items</h3>
 
 <div>
-  SampleItem : {{sampleItem.title}}
-  <a href="" id="change-title">Change title</a>
+  {{#each items}}
+    <div class="item" {{data 'model'}}>
+      <span>{{title}}</span><a href="" id="change-title">Change title</a>
+    </div>
+  {{/each}}  
 </div>
