@@ -1,30 +1,25 @@
-require('can-control');
-require("can-define/map/map");
-
 var can = require('can-util/namespace'),
+  PageControl = require('../common/pagecontrol'),
+  domData = require("can-util/dom/data/data"),
   $ = require('can-jquery'),
-  pageTemplate = can.stache(require('raw-loader!./testpage.html')),
   Item = require('../models/item'),
   itemConnection = require('../models/itemconnection');
-  
-  
-var PageControl = can.Control.extend({
-  init : function(el, options){
-    var vm = this.vm = new can.DefineMap();
-    itemConnection.getList({}).then(function(items){
-      vm.set('items', items);      
-    });
 
-    $(el).html(pageTemplate(vm));
-    
+var TestPage = PageControl.extend({
+  route : "#!testpage"
+},{
+  view : can.stache(require('raw-loader!./testpage.html')),
+
+  getData : function(){
+    return {
+      items : itemConnection.getList()
+    }
   },
-  'a#change-title click' : function(el,ev){
-    ev.stopPropagation();
-    ev.preventDefault();
-    var itemEl = $(el).closest('.item');
-    var item = itemEl.data('model');
-    console.log(item);
+  '.item a#change-title click' : function(el,ev){
+    ev.stop();
+    var item = el.closest('.item').domData('model');
+    item.title = "New title";
   }
 });
 
-module.exports = PageControl;
+module.exports = TestPage;

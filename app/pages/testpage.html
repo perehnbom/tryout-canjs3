@@ -2,8 +2,8 @@
 
 <div>
   {{#each items}}
-    <div class="item" {{data 'model'}}>
+    <div class="item" {{data 'model' .}}>
       <span>{{title}}</span><a href="" id="change-title">Change title</a>
     </div>
-  {{/each}}  
+  {{/each}}
 </div>
