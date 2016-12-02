@@ -6,7 +6,7 @@ var can = require('can-util/namespace'),
   itemConnection = require('../models/itemconnection');
 
 var TestPage = PageControl.extend({
-  route : "#!testpage"
+  route : "testpage"
 },{
   view : can.stache(require('raw-loader!./testpage.html')),
 

@@ -69,7 +69,9 @@ function initRoutes(router){
   }
 }
 
+var LEADING_HASH_REGEX = /^#!|#/gm;
 function findPageHitByHash(router, hash){
+  hash = hash.replace(LEADING_HASH_REGEX, '');
   for(var i=0;i<router.compiledRoutes.length; i++){
     var compiledRoute = router.compiledRoutes[i];
     var match = compiledRoute.route.match(hash);

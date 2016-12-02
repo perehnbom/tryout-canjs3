@@ -8,7 +8,8 @@ module.exports = {
         filename: "bundle.js"
     },
     devServer: {
-      inline: true
+      inline: true,
+      hot : true
     },
     devtool: 'inline-source-map'
 }

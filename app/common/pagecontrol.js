@@ -24,7 +24,8 @@ var PageControl = can.Control.extend({
   _preRenderPhase : function(){
     var controller = this;
 
-    controller.vm = new can.DefineMap(controller.options);
+    controller.vm = controller.element.viewModel();
+    Object.assign(controller.vm, controller.options);
     return resolveMap(controller.getData()).then(function(data){
       Object.assign(controller.vm, data);
       return controller.preRender(controller.vm);
@@ -47,7 +48,7 @@ var PageControl = can.Control.extend({
 function resolveMap(promiseMap){
 		var promiseArray = [];
 		var keyArray = [];
-    
+
 		_.map(promiseMap, function(promise, key) {
 			promiseArray.push(promise);
 			keyArray.push(key);

@@ -15,15 +15,15 @@ var can = require('can-util/namespace'),
 
 var AppControl = can.Control.extend({
   init : function(el, options){
-    this.vm = new can.DefineMap();
+    this.vm = el.viewModel();  
     this.vm.title = 'My App';
 
     el.html(mainTemplate(this.vm));
 
     this.appRouter = new AppRouter('#page-container', {
       routes : {
-        '#!page1' : TestPage,
-        '#!viewitem/:id' : TestPage
+        'page1' : TestPage,
+        'viewitem/:id' : TestPage
       },
       pages : pages,
       defaultPage : TestPage
