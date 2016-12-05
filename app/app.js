@@ -11,25 +11,24 @@ var can = require('can-util/namespace'),
   mainTemplate = can.stache(require('raw-loader!./maintemplate.html')),
   AppRouter = require('./common/approuter'),
   pages = require('./pages/pages'),
-  TestPage = require('./pages/testpage');
+  ViewItems = require('./pages/viewitems');
 
 var AppControl = can.Control.extend({
   init : function(el, options){
-    this.vm = el.viewModel();  
+    this.vm = el.viewModel();
     this.vm.title = 'My App';
 
     el.html(mainTemplate(this.vm));
 
     this.appRouter = new AppRouter('#page-container', {
       routes : {
-        'page1' : TestPage,
-        'viewitem/:id' : TestPage
+        'testpage' : ViewItems
       },
       pages : pages,
-      defaultPage : TestPage
+      defaultPage : ViewItems
     });
 
-    this.appRouter.openDefaultPage();
+    this.appRouter.openPageByHash();
   }
 });
 

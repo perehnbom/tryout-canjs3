@@ -12,7 +12,6 @@ var AppRouter = can.Control.extend({
     this.initRoutes();
   },
   initRoutes : function(){
-
     initRoutesByPages(this);
     initRoutes(this);
   },
@@ -25,28 +24,29 @@ var AppRouter = can.Control.extend({
     var pageControl = new Page(pageContainer.find('page:last-child')[0], params);
     return pageControl.render();
   },
-  openDefaultPage : function(){
-    if(this.openPageByHash()){
-      return;
-    }
-    if(this.options.defaultPage){
-      return this.openPage(this.options.defaultPage);
-    }
-    console.error('no default page was specified');
-  },
+
   openPageByHash : function(hash){
-    var pageHit = findPageHitByHash(this, hash || window.location.hash);
+    hash = hash || window.location.hash;
+    hash = hash.replace(LEADING_HASH_REGEX, '');
+
+    var pageHit = findPageHitByHash(this, hash);
     if(pageHit){
       return this.openPage(pageHit.page, pageHit.params);
     }
+    if(hash === "" && this.options.defaultPage){
+      return this.openPage(this.options.defaultPage);
+    }
     return false;
   },
+  
   '{window} hashchange' : function(el,ev){
     if(!this.openPageByHash()){
       console.error('page could not be found for hash ' + window.location.hash);
     }
   }
 })
+
+var LEADING_HASH_REGEX = /^#!|#/gm;
 
 function initRoutesByPages(router){
   var pages = router.options.pages;
@@ -69,9 +69,9 @@ function initRoutes(router){
   }
 }
 
-var LEADING_HASH_REGEX = /^#!|#/gm;
+
 function findPageHitByHash(router, hash){
-  hash = hash.replace(LEADING_HASH_REGEX, '');
+
   for(var i=0;i<router.compiledRoutes.length; i++){
     var compiledRoute = router.compiledRoutes[i];
     var match = compiledRoute.route.match(hash);

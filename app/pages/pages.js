@@ -1,3 +1,4 @@
 module.exports = [
-  require('./testpage')
+  require('./viewitems'),
+  require('./viewitem'),
 ]

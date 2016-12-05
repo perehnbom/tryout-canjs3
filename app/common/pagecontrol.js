@@ -26,7 +26,7 @@ var PageControl = can.Control.extend({
 
     controller.vm = controller.element.viewModel();
     Object.assign(controller.vm, controller.options);
-    return resolveMap(controller.getData()).then(function(data){
+    return resolveMap(controller.getData(controller.options)).then(function(data){
       Object.assign(controller.vm, data);
       return controller.preRender(controller.vm);
     });
