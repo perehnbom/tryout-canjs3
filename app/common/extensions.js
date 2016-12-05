@@ -7,5 +7,10 @@ $.Event.prototype.stop = function(){
 };
 
 $.prototype.domData = function(name){
-  return domData.get.call(this[0], name);
+  var model = domData.get.call(this[0], name);
+  return fromCompute(model);
 };
+
+function fromCompute(obj){
+  return obj && obj.isComputed ? obj() : obj;
+}
