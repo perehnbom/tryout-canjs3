@@ -6,6 +6,14 @@ require("can-util/dom/data/data");
 require('can-jquery/legacy');
 require('./common/extensions');
 
+/*
+
+Check in can connect:
+base-map.js
+super-map.js
+all.js
+*/
+
 var can = require('can-util/namespace'),
   $ = require('can-jquery'),
   mainTemplate = can.stache(require('raw-loader!./maintemplate.html')),

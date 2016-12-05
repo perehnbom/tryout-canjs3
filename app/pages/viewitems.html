@@ -1,0 +1,11 @@
+<h3>View Items</h3>
+
+<div>
+  {{#each items}}
+    <div class="item" {{data 'model' .}}>
+      <a href="#!viewitem/{{id}}">{{title}}</a>
+      <a href="" id="change-title">Change title</a>
+      <a href="" id="delete">Delete</a>
+    </div>
+  {{/each}}
+</div>
