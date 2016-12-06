@@ -2,7 +2,8 @@ var can = require('can-util/namespace'),
   PageControl = require('../common/pagecontrol'),
   domData = require("can-util/dom/data/data"),
   $ = require('can-jquery'),
-  Project = require('../models/project');
+  Project = require('../models/project'),
+  Item = require('../models/item');
 
 var ProjectPage = PageControl.extend({
   route : "viewproject"
@@ -11,11 +12,12 @@ var ProjectPage = PageControl.extend({
 
   getData : function(){
     return {
-        project : Project.get(1)
+        project : Project.get(1),
+        testItems : Item.getList({})
     }
   },
   preRender : function(vm){
-    console.log(vm.project);
+    console.log(vm.project);    
   },
   '.item a#change-title click' : function(el,ev){
     ev.stop();

@@ -9,3 +9,13 @@
     </div>
   {{/each}}
 </div>
+<h4>Items</h4>
+<div>
+  {{#each testItems}}
+    <div class="item" {{data 'model' .}}>
+      <a href="#!viewitem/{{id}}">{{title}}</a>
+      <a href="" id="change-title">Change title</a>
+      <a href="" id="delete">Delete</a>
+    </div>
+  {{/each}}
+</div>
