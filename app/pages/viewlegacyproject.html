@@ -1,0 +1,21 @@
+<h3>{{project.title}}</h3>
+
+<div>
+  {{#each project.items}}
+    <div class="item" {{data 'model' .}}>
+      <a href="#!viewitem/{{id}}">{{title}}</a>
+      <a href="" id="change-title">Change title</a>
+      <a href="" id="delete">Delete</a>
+    </div>
+  {{/each}}
+</div>
+<h3>Manually Defined Project Items</h3>
+<div>
+  {{#each manuallyDefinedProject.items}}
+    <div class="item" {{data 'model' .}}>
+      <a href="#!viewitem/{{id}}">{{title}}</a>
+      <a href="" id="change-title">Change title</a>
+      <a href="" id="delete">Delete</a>
+    </div>
+  {{/each}}
+</div>
