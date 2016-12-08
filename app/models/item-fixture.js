@@ -8,8 +8,8 @@ var itemAlgebra = new can.set.Algebra(
     can.set.props.id("id")
 );
 var itemStore = can.fixture.store([
-  { id: 1, title: 'Do the dishes'},
-  { id: 2, title: 'Walk the dog'}
+  { id: 1, title: 'Item 1'},
+  { id: 2, title: 'Item 2'}
 ], itemAlgebra);
 
 can.fixture("/items", itemStore);

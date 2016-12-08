@@ -12,8 +12,7 @@ var ProjectPage = PageControl.extend({
 
   getData : function(){
     return {
-        project : Project.get(1),
-        testItems : Item.getList({})
+        project : Project.get(1)
     }
   },
   preRender : function(vm){
@@ -24,13 +23,11 @@ var ProjectPage = PageControl.extend({
     var item = el.closest('.item').domData('model');
     item.title = "New title";
     item.save();
-    //itemConnection.save(item);
   },
   '.item a#delete click' : function(el,ev){
     ev.stop();
     var item = el.closest('.item').domData('model');
     item.destroy();
-    //itemConnection.destroy(item);
   }
 
 });
