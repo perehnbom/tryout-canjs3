@@ -27,35 +27,5 @@ var itemConnection = baseMap({
     url: "/items",
     name: "item"
 });
-/*
-var constructor = require("can-connect/constructor/constructor");
-var canMap = require("can-connect/can/map/map");
-var canRef = require("can-connect/can/ref/ref");
-var constructorStore = require("can-connect/constructor/store/store");
-var dataCallbacks = require("can-connect/data/callbacks/callbacks");
-var callbacksCache = require("can-connect/data/callbacks-cache/callbacks-cache");
-var dataParse = require("can-connect/data/parse/parse");
-var dataUrl = require("can-connect/data/url/url");
-var realTime = require("can-connect/real-time/real-time");
-var callbacksOnce = require("can-connect/constructor/callbacks-once/callbacks-once");
 
-var behaviors = [
-  constructor,
-  canMap,
-  canRef,
-  constructorStore,
-  dataCallbacks,
-  dataParse,
-  dataUrl,
-  realTime,
-  callbacksOnce
-];
-
-
-var itemConnection = can.connect(behaviors,{
-    url: "/items",
-    Map: Item,
-    List : Item.List
-});
-*/
 module.exports = Item;

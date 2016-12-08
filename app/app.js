@@ -19,7 +19,7 @@ var can = require('can-util/namespace'),
   mainTemplate = can.stache(require('raw-loader!./maintemplate.html')),
   AppRouter = require('./common/approuter'),
   pages = require('./pages/pages'),
-  ViewItems = require('./pages/viewitems');
+  DefaultStartPage = require('./pages/viewproject');
 
 var AppControl = can.Control.extend({
   init : function(el, options){
@@ -30,10 +30,10 @@ var AppControl = can.Control.extend({
 
     this.appRouter = new AppRouter('#page-container', {
       routes : {
-        'testpage' : ViewItems
+        'testpage' : DefaultStartPage
       },
       pages : pages,
-      defaultPage : ViewItems
+      defaultPage : DefaultStartPage
     });
 
     this.appRouter.openPageByHash();
