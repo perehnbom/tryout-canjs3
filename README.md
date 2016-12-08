@@ -1,6 +1,8 @@
 # tryout-canjs3
 To run:
+
 npm install
+
 npm run develop
 
 Note that to run the example with webpack, changes to can-connect must be made, see https://github.com/canjs/can-connect/pull/208
