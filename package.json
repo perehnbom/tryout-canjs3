@@ -21,6 +21,7 @@
   "dependencies": {
     "can":"^3.2.1",
     "can-map-define": "^3.0.1",
+    "can-connect": "^1.0.15",
     "raw-loader": "^0.5.1",
     "route-parser": "0.0.5",
     "lodash": "latest"
